@@ -1,0 +1,5 @@
+permission-service-secrets.yaml
+storage-secret.yaml
+mongo-secret.yaml
+ignore/*
+ignore
