@@ -14,11 +14,18 @@ spec:
         replicaCount: 1
         ingress:
           enabled: true
+          className: nginx
+          annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-prod
           hosts:
             - host: podinfo-helm.193.146.210.202.nip.io
               paths:
                 - path: /
                   pathType: ImplementationSpecific
+          tls:
+            - secretName: podinfo-helm-tls
+              hosts:
+                - podinfo-helm.193.146.210.202.nip.io
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
