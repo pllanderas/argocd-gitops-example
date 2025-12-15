@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/edgeContinuum/meo-services-gitops.git'
+    repoURL: 'https://github.com/pllanderas/argocd-gitops-example'
     path: apps/httpbin/manifests
     targetRevision: HEAD
   destination:
