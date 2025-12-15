@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+  namespace: default
+data:
+  settings.yaml: |
+    title: Kubernetes Cluster
+    theme: dark
+    color: slate
+    headerStyle: boxed
+    layout:
+      Infrastructure:
+        style: row
+        columns: 2
+      Applications:
+        style: row
+        columns: 2
+
+  services.yaml: |
+    ---
+    - Infrastructure:
+        - ArgoCD:
+            icon: argocd.png
+            href: https://argocd.193.146.210.202.nip.io
+            description: GitOps continuous delivery
+            widget:
+              type: argocd
+              url: https://argocd.193.146.210.202.nip.io
+
+        - Harbor:
+            icon: harbor.png
+            href: https://harbor.193.146.210.202.nip.io
+            description: Container registry
+
+    - Applications:
+        - HTTPBin:
+            icon: mdi-test-tube
+            href: http://httpbin.193.146.210.202.nip.io
+            description: HTTP testing service (Plain YAML)
+
+        - Podinfo:
+            icon: mdi-package-variant
+            href: https://podinfo-helm.193.146.210.202.nip.io
+            description: Microservice demo (Helm Chart)
+
+  bookmarks.yaml: |
+    ---
+    - Developer:
+        - GitHub:
+            - icon: github.png
+              href: https://github.com
+        - Documentation:
+            - icon: mdi-book-open-page-variant
+              href: https://kubernetes.io/docs/
+
+  widgets.yaml: |
+    ---
+    - resources:
+        cpu: true
+        memory: true
+        disk: /
+
+    - search:
+        provider: google
+        target: _blank
