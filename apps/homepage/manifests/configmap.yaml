@@ -24,9 +24,6 @@ data:
             icon: argocd.png
             href: https://argocd.193.146.210.202.nip.io
             description: GitOps continuous delivery
-            widget:
-              type: argocd
-              url: https://argocd.193.146.210.202.nip.io
 
         - Harbor:
             icon: harbor.png
