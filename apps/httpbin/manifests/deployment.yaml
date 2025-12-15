@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: podinfo
+  name: httpbin
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: podinfo
+      app: httpbin
   template:
     metadata:
       labels:
-        app: podinfo
+        app: httpbin
     spec:
       containers:
-      - name: podinfo
-        image: stefanprodan/podinfo:6.0.0
+      - name: httpbin
+        image: kennethreitz/httpbin:latest
         ports:
-        - containerPort: 9898
+        - containerPort: 80

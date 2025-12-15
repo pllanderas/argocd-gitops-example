@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: podinfo
+  name: httpbin
   namespace: default
 spec:
   ports:
   - port: 80
-    targetPort: 9898
+    targetPort: 80
   selector:
-    app: podinfo
+    app: httpbin

@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: podinfo
+  name: httpbin
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: 'https://github.com/edgeContinuum/meo-services-gitops.git'
-    path: apps/podinfo/manifests
+    path: apps/httpbin/manifests
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'

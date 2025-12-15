@@ -4,10 +4,13 @@ This repository contains examples of how to deploy applications to a Kubernetes 
 
 ## Structure
 
-The `apps` directory contains the ArgoCD Application definitions. Each file in this directory defines an application that ArgoCD will manage.
+The `apps` directory contains the ArgoCD Application definitions organized by application:
 
-- `apps/podinfo.yaml`: An example of a plain YAML deployment. The Kubernetes manifests for this application are located in `apps/base/podinfo`.
-- `apps/podinfo-helm.yaml`: An example of a Helm-based deployment. This application is deployed directly from a Helm repository.
+- `apps/httpbin/`: Plain YAML example deploying httpbin (HTTP request & response service)
+  - `application.yaml`: ArgoCD Application manifest
+  - `manifests/`: Kubernetes manifests (Deployment, Service, Ingress)
+- `apps/podinfo-helm/`: Helm chart example deploying podinfo
+  - `application.yaml`: ArgoCD Application manifest pointing to the Helm repository
 
 The `apps/kustomization.yaml` file lists all the applications that ArgoCD should deploy.
 
@@ -38,7 +41,8 @@ The `apps/kustomization.yaml` file lists all the applications that ArgoCD should
    ```
 
 3. **Access the applications:**
-   - `podinfo`: http://podinfo.example.com
-   - `podinfo-helm`: http://podinfo-helm.example.com
+   - `httpbin`: http://httpbin.193.146.210.202.nip.io
+   - `podinfo-helm`: http://podinfo-helm.193.146.210.202.nip.io
+   - `ArgoCD`: https://argocd.193.146.210.202.nip.io
 
-   You will need to configure your DNS or `/etc/hosts` file to point these hostnames to your Ingress controller.
+   The applications use nip.io for DNS resolution, which automatically resolves to the IP address in the hostname.

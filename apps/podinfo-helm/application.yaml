@@ -15,7 +15,7 @@ spec:
         ingress:
           enabled: true
           hosts:
-            - host: podinfo-helm.example.com
+            - host: podinfo-helm.193.146.210.202.nip.io
               paths:
                 - path: /
                   pathType: ImplementationSpecific
